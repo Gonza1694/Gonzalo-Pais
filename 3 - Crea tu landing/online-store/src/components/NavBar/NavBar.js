@@ -1,6 +1,9 @@
 import React from 'react'
+import './NavBar.css'
+import Logo from './Logo'
+import CartWidget from './Cart/CartWidget'
 import { AppBar, Toolbar, IconButton, TextField } from '@mui/material'
-import { AccountCircle, ShoppingCart } from '@material-ui/icons';
+import { AccountCircle } from '@material-ui/icons';
 
 //TODO: Remove unusing divs/classes
 const NavBar = () => {
@@ -8,17 +11,13 @@ const NavBar = () => {
     <>
       <AppBar position="static">
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div className='logo'>
-            <IconButton edge="start" color="inherit" aria-label="menu" style={{ marginRight: 'auto' }}>
-              Online Store
-            </IconButton>
-          </div>
-          <div className='searchField'>
-            <TextField id="outlined-search" label="" type="search" variant="outlined" size='small' margin="dense" style={{backgroundColor:'#fff', borderRadius:'6px'}} placeholder="Search..." />
-          </div>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <Logo />
+          </IconButton>
+          <TextField id="outlined-search" label="" type="search" variant="outlined" size='small' margin="dense" placeholder="Search..." />
           <div className='navButtons'>
             <IconButton>
-              <ShoppingCart />
+              <CartWidget />
             </IconButton>
             <IconButton>
               <AccountCircle />

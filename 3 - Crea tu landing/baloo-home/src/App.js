@@ -7,7 +7,7 @@ function App() {
   return (
     <Container>
       <NavBar />
-      <ItemListContainer />
+      <ItemListContainer greeting="Baloo Home"/>
     </Container>
   );
 }

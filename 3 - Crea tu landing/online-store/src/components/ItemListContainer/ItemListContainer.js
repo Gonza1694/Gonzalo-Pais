@@ -1,8 +1,8 @@
 import React from 'react'
-
+import myImg from '../../img/logo.png'
 const ItemListContainer = () => {
   return (
-    <h1>Baloo Home</h1>
+    <img src={myImg}/>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import './NavBar.css'
-import Logo from './Logo'
+import Logo from './Logo/Logo'
 import CartWidget from './Cart/CartWidget'
 import { AppBar, Toolbar, IconButton, TextField } from '@mui/material'
 import { AccountCircle } from '@material-ui/icons';
@@ -11,9 +11,7 @@ const NavBar = () => {
     <>
       <AppBar position="static">
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <IconButton edge="start" color="inherit" aria-label="menu">
             <Logo />
-          </IconButton>
           <TextField id="outlined-search" label="" type="search" variant="outlined" size='small' margin="dense" placeholder="Search..." />
           <div className='navButtons'>
             <IconButton>

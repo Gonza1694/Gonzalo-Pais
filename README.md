@@ -18,6 +18,5 @@ Coder House projects
 - 12 - Item Collection II
 
 ## Proyecto Final
-`//TODO: change the project name`
 
--Online Store
+-Baloo Home

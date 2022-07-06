@@ -9,7 +9,7 @@ import { AccountCircle } from '@material-ui/icons';
 const NavBar = () => {
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" className='app-bar'>
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Logo />
           <TextField id="outlined-search" label="" type="search" variant="outlined" size='small' margin="dense" placeholder="Search..." />

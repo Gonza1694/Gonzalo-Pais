@@ -34,7 +34,7 @@ const ItemCount = ({ product }) => {
                 </ButtonGroup>
             </div>
             <div>
-                <Button onClick={onAdd} variant="outlined" size="large">
+                <Button onClick={onAdd} variant="outlined" size="large" disabled={count === 0 ? true : false}>
                     <AddShoppingCart />
                 </Button>
             </div>

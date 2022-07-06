@@ -6,32 +6,39 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
 
-const ItemListContainer = () => {
+import products from '../../products';
+
+
+const ItemListContainer = (props) => {
   return (
     <>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            height="140"
-            image={myImg}
-            alt="Baloo Home"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Baloo Home
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions className='btn-group-container'>
-          <ItemCount />
-        </CardActions>
-      </Card>
+      {products.map((product) => (
+        <Card className="card-container">
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              image={myImg}
+              alt="Baloo Home"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {product.title}
+              </Typography>
+              <Typography>
+                ${product.price}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Stock disponible: {product.stock}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions className='btn-group-container'>
+            <ItemCount product={product} />
+          </CardActions>
+        </Card>
+      ))}
     </>
   )
 }

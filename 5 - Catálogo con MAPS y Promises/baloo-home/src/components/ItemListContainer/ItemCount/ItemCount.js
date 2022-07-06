@@ -26,14 +26,14 @@ const ItemCount = ({ product }) => {
 
     return (
         <>
-            <div className="btn-container">
-                <ButtonGroup size="large" aria-label="small outlined button group">
+            <div className="btn btn-container">
+                <ButtonGroup size="medium" aria-label="small outlined button group">
                     <Button onClick={handleDecrement} disabled={count === 0 ? true : false}>-</Button>
                     <Button >{count}</Button>
                     <Button onClick={handleIncrement} disabled={count === product.stock ? true : false}>+</Button>
                 </ButtonGroup>
             </div>
-            <div>
+            <div className="btn">
                 <Button onClick={onAdd} variant="outlined" size="large" disabled={count === 0 ? true : false}>
                     <AddShoppingCart />
                 </Button>

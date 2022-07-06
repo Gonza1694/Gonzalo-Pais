@@ -13,7 +13,7 @@ const ItemList = ({ products }) => {
     return (
         <>
             {loading
-                ? ( <CircularProgress disableShrink />)
+                ? ( <CircularProgress disableShrink />) //TODO: create a modal for this spinner
                 : (products.map((product) => (
                         <Item key={product.id} product={product} />
                   )))

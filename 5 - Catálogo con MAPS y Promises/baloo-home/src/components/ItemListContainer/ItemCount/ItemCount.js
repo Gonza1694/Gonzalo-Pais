@@ -10,23 +10,23 @@ const ItemCount = ({ product }) => {
     function handleIncrement() {
         count < product.stock
             ? setCount(count + 1)
-            : console.log("No puede agregar mas articulos")
+            : console.log("No puede agregar mas articulos") //TODO: add modal message
     }
 
     function handleDecrement() {
         count > 0
             ? setCount(count - 1)
-            : console.log("Sin stock")
+            : console.log("Sin stock") //TODO: add modal message
     }
 
     function onAdd() {
 
-        console.log(`Se agregaron ${count} articulos al carrito`)
+        console.log(`Se agregaron ${count} articulos al carrito`) // TODO: add modal message
     }
 
     return (
         <>
-            <div className="btn btn-container">
+            <div className="btn">
                 <ButtonGroup size="medium" aria-label="small outlined button group">
                     <Button onClick={handleDecrement} disabled={count === 0 ? true : false}>-</Button>
                     <Button >{count}</Button>

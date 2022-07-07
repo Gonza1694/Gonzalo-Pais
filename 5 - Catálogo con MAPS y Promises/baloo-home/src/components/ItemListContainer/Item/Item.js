@@ -27,7 +27,8 @@ const Item = ({ product }) => {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions className='btn-group-container'>
+            <CardActions className="btn-group-container">
+                {/*  TODO: fix position */}
                 <ItemCount product={product} />
             </CardActions>
         </Card>

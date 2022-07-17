@@ -1,39 +1,42 @@
-import React from 'react'
-import '../Item/Item.css'
+import React from 'react';
+import '../Item/Item.css';
+import './ItemDetail.css';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
-import { CardActionArea, CardActions } from '@mui/material';
+import { CardActions } from '@mui/material';
 
-const ItemDetail = () => {
-  return (
-    <Card className="card-container">
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    image={product.image}
-                    alt="Baloo Home"
-                />
+const ItemDetail = (product) => {
+    return (
+        <Card className="card-container">
+            <CardMedia
+                component="img"
+                image={product.product.image}
+                alt="Baloo Home"
+            />
+            <div className='card-content'>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" className="card-title">
-                        {product.title}
+                        {product.product.title}
                     </Typography>
                     <Typography>
-                        ${product.price}
+                        ${product.product.price}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Stock disponible: {product.stock}
+                        Stock disponible: {product.product.stock}
                     </Typography>
+                <Typography className="description">
+                    Descripcion: {product.product.description}
+                </Typography>
                 </CardContent>
-            </CardActionArea>
-            <CardActions className="btn-group-container">
-                {/*  TODO: fix position */}
-                <ItemCount product={product} />
-            </CardActions>
+                <CardActions className="btn-group-container">
+                    <ItemCount product={product.product} />
+                </CardActions>
+            </div>
         </Card>
-  )
+    )
 }
 
 export default ItemDetail

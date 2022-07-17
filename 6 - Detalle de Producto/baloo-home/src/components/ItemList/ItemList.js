@@ -1,6 +1,8 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import Item from '../Item/Item'
+import Spinner from '../Spinner/Spinner'
+
 
 const ItemList = ({ products }) => {
 
@@ -29,7 +31,7 @@ const ItemList = ({ products }) => {
     return (
         <>
             {loading
-                ? (<CircularProgress disableShrink />) //TODO: create a modal for this spinner
+                ? (<Spinner />) //TODO: create a modal for this spinner
                 : (mapProducts)
             }
         </>

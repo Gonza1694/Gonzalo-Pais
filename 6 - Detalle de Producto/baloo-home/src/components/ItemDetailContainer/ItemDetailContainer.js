@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import products from '../../products'
+import Spinner from '../Spinner/Spinner'
 
 const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        prom();
-        console.log('useEffect')
+        getItem();
     }, []);
 
-    const prom = () => {
+    const getItem = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(products)
@@ -20,11 +20,12 @@ const ItemDetailContainer = () => {
 
         });
     }
+
     return (
         <>
             {loading
-                ? (<CircularProgress disableShrink />) //TODO: create a modal for this spinner
-                : (<ItemDetail products={products} />)
+                ? (<Spinner />) //TODO: create a modal for this spinner
+                : (<ItemDetail product={products[0]} />)
             }
         </>
 

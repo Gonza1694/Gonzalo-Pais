@@ -1,0 +1,22 @@
+.card-container {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 40% 60%;
+    margin-top: 5%;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 15%;
+    width: 100%;
+}
+
+.description {
+    padding-top: 5%;
+}
+
+.btn-group-container {
+    justify-content: flex-start;
+}

@@ -1,4 +1,6 @@
-.card-container {
+.item-card-container {
+    display: flex;
+    flex-direction: column;
     margin: 15px 0;
 }
 

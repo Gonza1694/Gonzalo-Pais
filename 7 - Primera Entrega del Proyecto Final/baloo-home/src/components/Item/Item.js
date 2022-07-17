@@ -6,11 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount'
 import { CardActionArea, CardActions } from '@mui/material';
+import {Link} from 'react-router-dom';
 
 const Item = ({ product }) => {
     return (
-        <Card className="card-container">
-            <CardActionArea>
+        <Card className="item-card-container">
+            <CardActionArea component={Link} to="/Item-Detail">
                 <CardMedia
                     component="img"
                     image={product.image}

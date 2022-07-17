@@ -6,9 +6,9 @@ import products from '../../products'
 
 const ItemListContainer = () => {
   return (
-    <>
+    <div className='container' >
       <ItemList products={products} />
-    </>
+    </div>
   )
 }
 

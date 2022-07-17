@@ -10,7 +10,7 @@ import { CardActions } from '@mui/material';
 
 const ItemDetail = (product) => {
     return (
-        <Card className="card-container">
+        <Card className="card-container" style={{boxShadow: "none" }}>
             <CardMedia
                 component="img"
                 image={product.product.image}

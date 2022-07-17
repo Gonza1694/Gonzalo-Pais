@@ -1,0 +1,6 @@
+.container {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(4, 20%);
+    margin-top: 5%;
+}

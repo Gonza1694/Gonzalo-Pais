@@ -7,12 +7,11 @@ const ItemList = ({ products, loading }) => {
 
     const mapProducts = () => {
 
-        products = products.map((product) => (
+       return products.map((product) => (
             loading
                 ? (<Spinner key={product.id} />)
                 : (<Item key={product.id} product={product} />)
         ))
-        return products
     }
 
     return (

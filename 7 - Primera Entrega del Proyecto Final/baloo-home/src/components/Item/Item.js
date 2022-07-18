@@ -21,7 +21,7 @@ const Item = ({ product }) => {
                     <Typography gutterBottom variant="h5" component="div" className="card-title">
                         {product.title}
                     </Typography>
-                    <Typography>
+                    <Typography variant="h6">
                         ${product.price}
                     </Typography>
                 </CardContent>

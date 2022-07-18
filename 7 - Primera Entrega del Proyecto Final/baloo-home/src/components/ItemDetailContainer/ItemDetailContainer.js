@@ -11,11 +11,12 @@ const ItemDetailContainer = () => {
 
     const { id } = useParams()
 
-    const product = products.filter((product => product.id == id))
+    const product = products.filter((product => product.id === parseInt(id)))
 
     const getItem = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(product)
+            setLoading(false)
         },
             2000);
     });
@@ -23,26 +24,23 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         getItem
             .then((product) => setItemDetail(product))
-            .finally(setLoading(false))
-    });
-
-    const mapItemDetail = itemDetail.map(({ id, title, price, description, category, image, stock }) => (
-        loading
-            ? (<Spinner key="uniqueIdSpinner" />)
-            : (<ItemDetail
-                key={id}
-                title={title}
-                price={price}
-                description={description}
-                category={category}
-                image={image}
-                stock={stock}
-            />)
-    ))
+    }, [id]);
 
     return (
         <>
-            {mapItemDetail}
+            {loading
+                ? (<Spinner key={id} />)
+                : itemDetail.map(({ id, title, price, description, category, image, stock }) => (
+                    (<ItemDetail
+                        key={id}
+                        title={title}
+                        price={price}
+                        description={description}
+                        category={category}
+                        image={image}
+                        stock={stock}
+                    />)
+                ))}
         </>
 
     )

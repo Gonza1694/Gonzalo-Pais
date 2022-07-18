@@ -15,7 +15,7 @@ const products =
             title: "Estante",
             price: 1950.00,
             description: "Estantes para baño cocina autoadhesivo",
-            category: "Baño",
+            category: "Bano",
             image: myImg,
             stock: 5
         },

@@ -1,0 +1,12 @@
+.MuiSelect-select, .MuiMenuItem-root, .MuiList-root, .MuiList-padding {
+    background-color: #1976d2!important;
+    color: #FFF!important;
+}
+
+.MuiList-padding{
+    border: #1976d2;
+}
+.select-category{
+    color: #FFF;
+    background-color: #1976d2;
+}

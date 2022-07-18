@@ -22,13 +22,9 @@ const ItemList = ({ products }) => {
         });
     }
 
-    // const mapProducts = products.map((product) => (
-    //     <Item key={product.id} product={product} />
-    // ))
-
     const mapProducts = products.map((product) => (
         loading
-            ? (<Spinner />)
+            ? (<Spinner key={product.id}/>)
             : (<Item key={product.id} product={product} />)
     ))
 

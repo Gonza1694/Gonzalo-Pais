@@ -12,9 +12,7 @@ const NavBar = () => {
     <>
       <AppBar position="static" className='app-bar'>
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <IconButton component={Link} to="/">
-            <Logo />
-          </IconButton>
+          <Link style={{textDecoration:'none'}} to="/"><Logo /></Link>
           <TextField id="outlined-search" label="" type="search" variant="outlined" size='small' margin="dense" placeholder="Search..." />
           <div className='navButtons'>
             <IconButton>

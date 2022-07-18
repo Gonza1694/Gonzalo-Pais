@@ -22,16 +22,19 @@ const ItemList = ({ products }) => {
         });
     }
 
+    // const mapProducts = products.map((product) => (
+    //     <Item key={product.id} product={product} />
+    // ))
+
     const mapProducts = products.map((product) => (
-        <Item key={product.id} product={product} />
+        loading
+            ? (<Spinner />)
+            : (<Item key={product.id} product={product} />)
     ))
 
     return (
         <>
-            {loading
-                ? (<Spinner />) //TODO: create a modal for this spinner
-                : (mapProducts)
-            }
+            {mapProducts}
         </>
     )
 }

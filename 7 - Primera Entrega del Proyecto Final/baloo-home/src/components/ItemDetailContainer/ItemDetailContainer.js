@@ -16,7 +16,6 @@ const ItemDetailContainer = () => {
     const getItem = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(product)
-            setLoading(false)
         },
             2000);
     });
@@ -24,27 +23,27 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         getItem
             .then((product) => setItemDetail(product))
+            .finally(setLoading(false))
     }, [id]);
 
     const mapItemDetail = itemDetail.map(({ id, title, price, description, category, image, stock }) => (
-        <ItemDetail
-            key={id}
-            id={id}
-            title={title}
-            price={price}
-            description={description}
-            category={category}
-            image={image}
-            stock={stock}
-        />
+        loading
+            ? (<Spinner key="uniqueIdSpinner"/>)
+            : (<ItemDetail
+                key={id}
+                id={id}
+                title={title}
+                price={price}
+                description={description}
+                category={category}
+                image={image}
+                stock={stock}
+            />)
     ))
 
     return (
         <>
-            {loading
-                ? (<Spinner />) //TODO: create a modal for this spinner
-                : (mapItemDetail)
-            }
+            {mapItemDetail}
         </>
 
     )

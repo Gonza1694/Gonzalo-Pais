@@ -11,7 +11,7 @@ import {Link} from 'react-router-dom';
 const Item = ({ product }) => {
     return (
         <Card className="item-card-container">
-            <CardActionArea component={Link} to="/Item-Detail">
+            <CardActionArea component={Link} to={`/Item-Detail/${product.id}`}>
                 <CardMedia
                     component="img"
                     image={product.image}

@@ -8,31 +8,31 @@ import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 import { CardActions } from '@mui/material';
 
-const ItemDetail = (product) => {
+const ItemDetail = ({ id, title, price, description, category, image, stock }) => {
     return (
-        <Card className="card-container" style={{boxShadow: "none" }}>
+        <Card className="card-container" style={{ boxShadow: "none" }}>
             <CardMedia
                 component="img"
-                image={product.product.image}
+                image={image}
                 alt="Baloo Home"
             />
             <div className='card-content'>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" className="card-title">
-                        {product.product.title}
+                        {title}
                     </Typography>
                     <Typography>
-                        ${product.product.price}
+                        ${price}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Stock disponible: {product.product.stock}
+                        Stock disponible: {stock}
                     </Typography>
-                <Typography className="description">
-                    Descripcion: {product.product.description}
-                </Typography>
+                    <Typography className="description">
+                        Descripcion: {description}
+                    </Typography>
                 </CardContent>
                 <CardActions className="btn-group-container">
-                    <ItemCount product={product.product} />
+                    <ItemCount stock={stock} />
                 </CardActions>
             </div>
         </Card>

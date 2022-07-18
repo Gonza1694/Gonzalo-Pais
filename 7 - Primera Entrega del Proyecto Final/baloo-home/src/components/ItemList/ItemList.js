@@ -9,8 +9,7 @@ const ItemList = ({ products }) => {
 
     useEffect(() => {
         prom();
-        console.log('useEffect')
-    }, []);
+    });
 
     const prom = () => {
         return new Promise((resolve, reject) => {

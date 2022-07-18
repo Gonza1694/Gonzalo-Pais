@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount'
 import { CardActionArea, CardActions } from '@mui/material';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Item = ({ product }) => {
     return (
@@ -24,15 +24,8 @@ const Item = ({ product }) => {
                     <Typography>
                         ${product.price}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Stock disponible: {product.stock}
-                    </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions className="btn-group-container">
-                {/*  TODO: fix position */}
-                <ItemCount product={product} />
-            </CardActions>
         </Card>
     )
 }

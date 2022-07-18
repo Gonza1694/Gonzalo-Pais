@@ -3,7 +3,7 @@ import './Category.css'
 import Label from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { MenuItem, Select } from '@mui/material';
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Category() {
 

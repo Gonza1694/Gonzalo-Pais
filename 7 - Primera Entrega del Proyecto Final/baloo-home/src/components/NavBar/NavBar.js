@@ -7,7 +7,6 @@ import { AppBar, Toolbar, IconButton, TextField } from '@mui/material'
 import { AccountCircle } from '@material-ui/icons';
 import { Link } from 'react-router-dom'
 
-//TODO: Remove unusing divs/classes
 const NavBar = () => {
   return (
     <>
@@ -16,7 +15,7 @@ const NavBar = () => {
           <Link style={{ textDecoration: 'none' }} to="/">
             <Logo />
           </Link>
-          {/* <TextField id="outlined-search" label="" type="search" variant="outlined" size='small' margin="dense" placeholder="Search..." /> */}
+          <TextField id="outlined-search" label="" type="search" variant="outlined" size='small' margin="dense" placeholder="Search..." />
           <div className='navButtons'>
             <Category />
             <IconButton>

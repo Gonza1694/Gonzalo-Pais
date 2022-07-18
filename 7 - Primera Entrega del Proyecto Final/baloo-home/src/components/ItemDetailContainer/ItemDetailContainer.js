@@ -24,14 +24,13 @@ const ItemDetailContainer = () => {
         getItem
             .then((product) => setItemDetail(product))
             .finally(setLoading(false))
-    }, [id]);
+    });
 
     const mapItemDetail = itemDetail.map(({ id, title, price, description, category, image, stock }) => (
         loading
-            ? (<Spinner key="uniqueIdSpinner"/>)
+            ? (<Spinner key="uniqueIdSpinner" />)
             : (<ItemDetail
                 key={id}
-                id={id}
                 title={title}
                 price={price}
                 description={description}

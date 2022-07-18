@@ -1,36 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Item from '../Item/Item'
 import Spinner from '../Spinner/Spinner'
 
 
-const ItemList = ({ products }) => {
+const ItemList = ({ products, loading }) => {
 
-    const [loading, setLoading] = useState(true);
+    const mapProducts = () => {
 
-    useEffect(() => {
-        prom();
-    });
-
-    const prom = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(products)
-                setLoading(false)
-            },
-                2000);
-
-        });
+        products = products.map((product) => (
+            loading
+                ? (<Spinner key={product.id} />)
+                : (<Item key={product.id} product={product} />)
+        ))
+        return products
     }
-
-    const mapProducts = products.map((product) => (
-        loading
-            ? (<Spinner key={product.id}/>)
-            : (<Item key={product.id} product={product} />)
-    ))
 
     return (
         <>
-            {mapProducts}
+            {mapProducts()}
         </>
     )
 }

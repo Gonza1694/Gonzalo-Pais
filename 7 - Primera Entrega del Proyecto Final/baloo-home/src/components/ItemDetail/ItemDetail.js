@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 import { CardActions } from '@mui/material';
 
-const ItemDetail = ({ id, title, price, description, category, image, stock }) => {
+const ItemDetail = ({ title, price, description, image, stock }) => {
     return (
         <Card className="card-container" style={{ boxShadow: "none" }}>
             <CardMedia

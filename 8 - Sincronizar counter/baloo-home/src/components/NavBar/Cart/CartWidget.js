@@ -1,9 +1,11 @@
 import React from 'react'
-import { ShoppingCart } from '@material-ui/icons';
+import { ShoppingCartRounded } from '@mui/icons-material';
 
 const CartWidget = () => {
   return (
-    <ShoppingCart />
+    <>
+      <ShoppingCartRounded />
+    </>
   )
 }
 

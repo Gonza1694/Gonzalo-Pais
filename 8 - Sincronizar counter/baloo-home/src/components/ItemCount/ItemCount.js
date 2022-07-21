@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import './ItemCount.css'
-import { AddShoppingCart } from '@material-ui/icons';
+import { AddShoppingCart } from '@mui/icons-material';
+import { Button, ButtonGroup } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 const ItemCount = ({ stock }) => {
 

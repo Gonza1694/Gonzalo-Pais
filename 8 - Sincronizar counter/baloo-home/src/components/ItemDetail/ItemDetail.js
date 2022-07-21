@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../Item/Item.css';
 import './ItemDetail.css';
 import Card from '@mui/material/Card';
@@ -7,11 +7,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 import { CardActions } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ title, price, description, image, stock }) => {
-
-    const [cart, setCart] = useState(true);
 
     return (
         <Card className="card-container" style={{ boxShadow: "none" }}>

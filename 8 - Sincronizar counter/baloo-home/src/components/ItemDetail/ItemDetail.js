@@ -33,9 +33,9 @@ const ItemDetail = ({ title, price, description, image, stock }) => {
                     </Typography>
                 </CardContent>
                 <CardActions className="btn-group-container">
-                        <ItemCount
-                            stock={stock}
-                        />
+                    <ItemCount
+                        stock={stock}
+                    />
                 </CardActions>
             </div>
         </Card>

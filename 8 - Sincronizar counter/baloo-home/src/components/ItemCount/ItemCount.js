@@ -49,7 +49,7 @@ const ItemCount = ({ stock }) => {
                     <div className="btn btn-go-to-cart">
                         <Button component={Link} to="/cart" variant="outlined" size="large">
                             <Typography>Ir al carrito </Typography>
-                            <ShoppingCartCheckout />
+                            <ShoppingCartCheckout className="ShoppingCartCheckout"/>
                         </Button>
                     </div>
                 </>)

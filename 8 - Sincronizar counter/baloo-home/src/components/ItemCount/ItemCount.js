@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './ItemCount.css'
-import { AddShoppingCart } from '@mui/icons-material';
-import { Button, ButtonGroup } from '@mui/material';
+import { AddShoppingCart, ShoppingCartCheckout } from '@mui/icons-material';
+import { Button, ButtonGroup, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const ItemCount = ({ stock }) => {
@@ -37,14 +37,22 @@ const ItemCount = ({ stock }) => {
                                 <Button>{count}</Button>
                                 <Button onClick={handleIncrement} disabled={count === stock ? true : false}>+</Button>
                             </ButtonGroup>
-                        </div><div className="btn">
+                        </div>
+                        <div className="btn">
                             <Button onClick={onAdd} variant="outlined" size="large" disabled={count === 0 ? true : false}>
                                 <AddShoppingCart />
                             </Button>
                         </div>
                     </>
                 )
-                : (<Link to="/cart">Ir al carrito</Link>)
+                : (<>
+                    <div className="btn btn-go-to-cart">
+                        <Button component={Link} to="/cart" variant="outlined" size="large">
+                            <Typography>Ir al carrito </Typography>
+                            <ShoppingCartCheckout />
+                        </Button>
+                    </div>
+                </>)
             }
         </>
     )

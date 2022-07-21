@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Item/Item.css';
 import './ItemDetail.css';
 import Card from '@mui/material/Card';
@@ -7,8 +7,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 import { CardActions } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ title, price, description, image, stock }) => {
+
+    const [cart, setCart] = useState(true);
+
     return (
         <Card className="card-container" style={{ boxShadow: "none" }}>
             <CardMedia
@@ -32,7 +36,9 @@ const ItemDetail = ({ title, price, description, image, stock }) => {
                     </Typography>
                 </CardContent>
                 <CardActions className="btn-group-container">
-                    <ItemCount stock={stock} />
+                        <ItemCount
+                            stock={stock}
+                        />
                 </CardActions>
             </div>
         </Card>

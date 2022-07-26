@@ -14,7 +14,7 @@ const ItemDetail = ({ title, price, description, image, stock }) => {
     const { addProduct } = useContext(CartContext)
 
     function onAddEvent(n) {
-        addProduct({ ...title, ...price, ...description, stock: n });
+        addProduct({ ...title, ...price, ...description, quantity: n });
     }
 
     return (

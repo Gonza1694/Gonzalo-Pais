@@ -24,7 +24,7 @@ const ItemCount = ({ stock, onAdd }) => {
     function onAddProduct() {
         onAdd(count);
         setshowCart(false);
-        alert(`Se agregaron ${count} articulos al carrito`); // TODO: add modal message
+        // alert(`Se agregaron ${count} articulos al carrito`); // TODO: add modal message and fix the bug
     }
 
     return (

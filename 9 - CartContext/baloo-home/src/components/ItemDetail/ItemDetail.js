@@ -11,11 +11,11 @@ import { CardActions } from '@mui/material';
 
 const ItemDetail = ({product}) => {
 
-    const { addProduct, cart } = useContext(CartContext)
+    const { addProduct, cart } = useContext(CartContext) // TODO: delete cart
 
     function onAddEvent(n) {
         addProduct({...product, quantity: n });
-        console.log({cart})
+        console.log({cart}) // TODO: delete console log
     }
 
     return (

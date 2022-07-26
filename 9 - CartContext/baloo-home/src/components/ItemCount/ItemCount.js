@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import './ItemCount.css'
+import './ItemCount.css';
 import { AddShoppingCart, ShoppingCartCheckout } from '@mui/icons-material';
 import { Button, ButtonGroup, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, onAdd }) => {
 
     const [count, setCount] = useState(0);
     const [showCart, setshowCart] = useState(true);
@@ -21,7 +21,8 @@ const ItemCount = ({ stock }) => {
             : console.log("Sin stock"); //TODO: add modal message
     }
 
-    function onAdd() {
+    function onAddProduct() {
+        onAdd(count);
         setshowCart(false);
         alert(`Se agregaron ${count} articulos al carrito`); // TODO: add modal message
     }
@@ -39,7 +40,7 @@ const ItemCount = ({ stock }) => {
                             </ButtonGroup>
                         </div>
                         <div className="btn">
-                            <Button onClick={onAdd} variant="outlined" size="large" disabled={count === 0 ? true : false}>
+                            <Button onClick={onAddProduct} variant="outlined" size="large" disabled={count === 0 ? true : false}>
                                 <AddShoppingCart />
                             </Button>
                         </div>
@@ -49,7 +50,7 @@ const ItemCount = ({ stock }) => {
                     <div className="btn btn-go-to-cart">
                         <Button component={Link} to="/cart" variant="outlined" size="large">
                             <Typography>Ir al carrito </Typography>
-                            <ShoppingCartCheckout className="ShoppingCartCheckout"/>
+                            <ShoppingCartCheckout className="ShoppingCartCheckout" />
                         </Button>
                     </div>
                 </>)

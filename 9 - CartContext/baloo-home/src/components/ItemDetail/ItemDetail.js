@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../Item/Item.css';
 import './ItemDetail.css';
 import Card from '@mui/material/Card';
@@ -6,9 +6,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
+import CartContext from '../../Context/cartContext';
 import { CardActions } from '@mui/material';
 
 const ItemDetail = ({ title, price, description, image, stock }) => {
+
+    const { addProduct } = useContext(CartContext)
+
+    function onAddEvent(n) {
+        addProduct({ ...title, ...price, ...description, stock: n });
+    }
 
     return (
         <Card className="card-container" style={{ boxShadow: "none" }}>
@@ -34,6 +41,7 @@ const ItemDetail = ({ title, price, description, image, stock }) => {
                 </CardContent>
                 <CardActions className="btn-group-container">
                     <ItemCount
+                        onAdd={(n) => onAddEvent()}
                         stock={stock}
                     />
                 </CardActions>

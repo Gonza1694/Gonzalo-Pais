@@ -23,7 +23,7 @@ const CartProvider = ({ children }) => {
             const _cart = cart.slice();
             _cart[index].quantity = _cart[index].quantity + product.quantity;
             setCart(_cart);
-            alert("El producto ya se encuentra en el carro de compras");
+            alert("El producto ya se encuentra en el carrito de compras");
         }
     }
 

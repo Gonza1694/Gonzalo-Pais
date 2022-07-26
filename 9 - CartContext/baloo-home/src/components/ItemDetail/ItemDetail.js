@@ -9,40 +9,41 @@ import ItemCount from '../ItemCount/ItemCount';
 import CartContext from '../../Context/cartContext';
 import { CardActions } from '@mui/material';
 
-const ItemDetail = ({ title, price, description, image, stock }) => {
+const ItemDetail = ({product}) => {
 
-    const { addProduct } = useContext(CartContext)
+    const { addProduct, cart } = useContext(CartContext)
 
     function onAddEvent(n) {
-        addProduct({ ...title, ...price, ...description, quantity: n });
+        addProduct({...product, quantity: n });
+        console.log({cart})
     }
 
     return (
         <Card className="card-container" style={{ boxShadow: "none" }}>
             <CardMedia
                 component="img"
-                image={image}
+                image={product.image}
                 alt="Baloo Home"
             />
             <div className='card-content'>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" className="card-title">
-                        {title}
+                        {product.title}
                     </Typography>
                     <Typography>
-                        ${price}
+                        ${product.price}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Stock disponible: {stock}
+                        Stock disponible: {product.stock}
                     </Typography>
                     <Typography className="description">
-                        Descripcion: {description}
+                        Descripcion: {product.description}
                     </Typography>
                 </CardContent>
                 <CardActions className="btn-group-container">
                     <ItemCount
-                        onAdd={(n) => onAddEvent()}
-                        stock={stock}
+                        onAdd={(n) => onAddEvent(n)}
+                        stock={product.stock}
                     />
                 </CardActions>
             </div>

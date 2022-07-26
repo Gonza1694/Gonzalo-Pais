@@ -30,19 +30,13 @@ const ItemDetailContainer = () => {
         <>
             {loading
                 ? (<Spinner key={id} />)
-                : itemDetail.map(({ id, title, price, description, category, image, stock }) => (
+                : itemDetail.map((product) => (
                     (<ItemDetail
-                        key={id}
-                        title={title}
-                        price={price}
-                        description={description}
-                        category={category}
-                        image={image}
-                        stock={stock}
+                        key={product.id}
+                        product={product}
                     />)
                 ))}
         </>
-
     )
 }
 

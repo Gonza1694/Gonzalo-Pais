@@ -3,11 +3,16 @@ import CartContext from '../../Context/cartContext';
 
 const Cart = () => {
 
-    const { cart, totalItems, totalPricec, clearAll } = useContext(CartContext)
+    const { cart, totalItems, totalPrice, clearAll } = useContext(CartContext)
 
     return (
         <>
-        <div>{cart.map(product=> (<div>{product.id}</div>))}</div>
+        {cart.map(product=> (
+        <div>
+            <h1>{product.title}</h1>
+            <img src={product.image}></img>
+            <h2>${product.price}</h2>
+        </div>))}
         </>
     )
 }

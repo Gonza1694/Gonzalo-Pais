@@ -1,18 +1,28 @@
 import React, { useContext } from 'react';
 import CartContext from '../../Context/cartContext';
+import CartItem from '../CartItem/CartItem';
+import { Typography } from '@mui/material';
+import './Cart.css';
 
 const Cart = () => {
 
-    const { cart, totalItems, totalPrice, clearAll } = useContext(CartContext) // TODO complete this
+    const { cart, totalproducts, totalPrice, clearAll } = useContext(CartContext) // TODO complete this
 
     return (
         <>
-        {cart.map(product=> (
-        <div>
-            <h1>{product.title}</h1>
-            <img src={product.image}></img>
-            <h2>${product.price}</h2>
-        </div>))}
+            <Typography variant="h4" color="text.primary">
+                {totalproducts} Articulos | Total = {totalPrice}
+            </Typography>
+
+            <div className='cart-item-container'>
+                {cart.map(product => (
+                    <CartItem product={product}
+                        totalproducts={totalproducts}
+                        totalPrice={totalPrice}
+                        clearAll={clearAll}
+                    />
+                ))}
+            </div>
         </>
     );
 }

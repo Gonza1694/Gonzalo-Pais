@@ -18,7 +18,7 @@ const NavBar = () => {
           <TextField id="outlined-search" label="" type="search" variant="outlined" size='small' margin="dense" placeholder="Search..." />
           <div className='navButtons'>
             <Category />
-            <IconButton>
+            <IconButton component={Link} to="/cart">
               <CartWidget />
             </IconButton>
             <IconButton>

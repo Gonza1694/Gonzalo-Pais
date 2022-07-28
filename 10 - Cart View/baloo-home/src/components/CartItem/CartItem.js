@@ -19,7 +19,7 @@ const CartItem = ({ product, clearAll }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Elimitnar del carrito</Button>
+                    <Button size="small">Eliminar del carrito</Button>
                 </CardActions>
             </div>
         </Card>

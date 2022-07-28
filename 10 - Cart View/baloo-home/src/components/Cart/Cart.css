@@ -1,3 +1,8 @@
-.cart-item-container{
+.cart-item-container {
     margin: 10px;
+}
+
+.cart-empty {
+    margin-top: 20%;
+    text-align: center;
 }

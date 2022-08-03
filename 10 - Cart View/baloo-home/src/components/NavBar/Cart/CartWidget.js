@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { ShoppingCartRounded } from '@mui/icons-material';
 import CartContext from '../../../Context/cartContext'
+import { Typography } from '@mui/material';
 
 
 const CartWidget = () => {
@@ -10,7 +11,9 @@ const CartWidget = () => {
   return (
     <>
       <ShoppingCartRounded />
-      {totalproducts}
+      <Typography>
+        {totalproducts}
+      </Typography>
     </>
   )
 }

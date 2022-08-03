@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Card, CardMedia, CardContent, Typography, Button, CardActions } from '@mui/material';
+import CartContext from '../../Context/cartContext'
 import './CartItem.css';
 
 const CartItem = ({ cart, product, clearAll }) => {
+    const { deleteProduct } = useContext(CartContext)
+
+    const deleteOne = () =>{
+        deleteProduct(product.id);
+    }
     return (
         <Card sx={{ maxWidth: '100%' }} className='Card'>
             <div className='card-content'>
@@ -22,7 +28,7 @@ const CartItem = ({ cart, product, clearAll }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Eliminar del carrito</Button>
+                    <Button size="small" onClick={deleteOne}>Eliminar del carrito</Button>
                 </CardActions>
             </div>
         </Card>

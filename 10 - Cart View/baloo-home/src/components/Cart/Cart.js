@@ -36,7 +36,6 @@ const Cart = () => {
                             ))}
                         </div>
                         <Button size="small" onClick={clearAll}>Vaciar del carrito</Button>
-
                     </>
                 )
             }

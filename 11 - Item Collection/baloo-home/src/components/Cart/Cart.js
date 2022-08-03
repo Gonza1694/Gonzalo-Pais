@@ -7,7 +7,6 @@ import './Cart.css';
 
 const Cart = () => {
 
-
     const { cart, totalproducts, totalPrice, clearAll } = useContext(CartContext) // TODO complete this
 
     return (
@@ -36,6 +35,7 @@ const Cart = () => {
                                 />
                             ))}
                         </div>
+                        <Button size="small" onClick={clearAll}>Vaciar del carrito</Button>
                     </>
                 )
             }

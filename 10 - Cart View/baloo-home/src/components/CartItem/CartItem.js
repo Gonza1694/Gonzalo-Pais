@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardMedia, CardContent, Typography, Button, CardActions } from '@mui/material';
 import './CartItem.css';
 
-const CartItem = ({ product, clearAll }) => {
+const CartItem = ({ cart, product, clearAll }) => {
     return (
         <Card sx={{ maxWidth: '100%' }} className='Card'>
             <div className='card-content'>
@@ -15,7 +15,10 @@ const CartItem = ({ product, clearAll }) => {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        {product.title}
+                        {product.title}                        
+                    </Typography>
+                    <Typography>
+                    Cantidad: {product.quantity}
                     </Typography>
                 </CardContent>
                 <CardActions>

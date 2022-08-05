@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import products from '../../products';
+import { getProductDetail } from '../../firebase'
 import Spinner from '../Spinner/Spinner';
 import { useParams } from 'react-router-dom';
 
@@ -11,19 +11,12 @@ const ItemDetailContainer = () => {
 
     const { id } = useParams();
 
-    const product = products.filter((product => product.id === parseInt(id)));
-
-    const getItem = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(product);
-            setLoading(false);
-        },
-            2000);
-    });
-
     useEffect(() => {
-        getItem
-            .then((product) => setItemDetail(product))
+        getProductDetail(id).then((snapshot) => {
+            console.log(snapshot)
+            setItemDetail(snapshot.docs.map(document => ({ id: document.id, ...document.data() })))
+            setLoading(false);
+        })
     }, [id]);
 
     return (

@@ -1,40 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getProducts, getProductsByCategory } from '../../firebase.js';
 import ItemList from '../ItemList/ItemList';
-import products from '../../products'
-import Spinner from '../Spinner/Spinner'
-import './ItemListContainer.css'
+import Spinner from '../Spinner/Spinner';
+import './ItemListContainer.css';
 
 
 const ItemListContainer = () => {
 
   const [loading, setLoading] = useState(true);
-  const [product, setProduct] = useState(products);
+  const [products, setProducts] = useState([]);
 
   const { categoryId } = useParams();
-
-  const getItems =
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(products)
-        setLoading(false)
-      },
-        2000);
-    });
-
   useEffect(() => {
 
     setLoading(true)
 
     !categoryId
-      ? (getItems
-        .then(setProduct(products)))
+      ? (getProducts().then((snapshot) => {
+        setProducts(
+          snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+        );
+        setLoading(false)
+      }))
 
-      : (getItems
-        .then(() => {
-          const producstByCategory = products.filter((products => products.category === categoryId));
-          setProduct(producstByCategory);
-        }))
+      : (getProductsByCategory(categoryId)).then((snapshot) => {
+        setProducts(
+          snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+        );
+        setLoading(false)
+      });
   }, [categoryId])
 
   return (
@@ -42,10 +37,10 @@ const ItemListContainer = () => {
       ? (<Spinner />)
       : (<div className='container' >
         <ItemList
-          products={product}
+          products={products}
         />
       </div>)
   )
 }
 
-export default ItemListContainer
+export default ItemListContainer;

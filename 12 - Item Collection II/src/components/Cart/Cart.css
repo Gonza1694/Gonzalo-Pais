@@ -6,3 +6,8 @@
     margin-top: 20%;
     text-align: center;
 }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}

@@ -13,7 +13,7 @@ const Item = ({ product }) => {
             <CardActionArea component={Link} to={`/Item-Detail/${product.id}`}>
                 <CardMedia
                     component="img"
-                    image={product.image}
+                    image={product.imageId}
                     alt="Baloo Home"
                 />
                 <CardContent>

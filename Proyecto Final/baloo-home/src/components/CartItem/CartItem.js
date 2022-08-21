@@ -17,7 +17,7 @@ const CartItem = ({ product }) => {
                         component="img"
                         height="150"
                         width="80"
-                        image={product.image}
+                        image={product.imageId}
                         alt=""
                     />
                     <CardContent>

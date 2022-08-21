@@ -21,7 +21,7 @@ const ItemDetail = ({product}) => {
         <Card className="card-container" style={{ boxShadow: "none" }}>
             <CardMedia
                 component="img"
-                image={product.image}
+                image={product.imageId}
                 alt="Baloo Home"
             />
             <div className='card-content'>

@@ -1,0 +1,16 @@
+.item-card-container {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.card-title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.btn-group-container {
+    display: flex;
+    justify-content: center;
+}

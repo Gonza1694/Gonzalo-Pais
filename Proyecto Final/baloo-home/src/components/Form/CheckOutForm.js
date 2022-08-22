@@ -4,7 +4,7 @@ import './CheckOutForm.css'
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import CheckoutSucceed from '../CheckoutSucceed/CheckoutSucceed';
 
-const CheckOutForm = ({ cart, totalPrice }) => {
+const CheckOutForm = ({ cart, totalPrice, clearAll }) => {
 
     const [error, setError] = useState(false);
     const [msg, setMsg] = useState("");
@@ -31,9 +31,8 @@ const CheckOutForm = ({ cart, totalPrice }) => {
 
         addDoc(collectionOrders, orderInfo)
         .then(doc => setOrderId(doc.id))
-        .then(setIsSucceed(true));
-
-    
+        .then(setIsSucceed(true))
+        .then(clearAll);    
     }
 
     useEffect(() => {

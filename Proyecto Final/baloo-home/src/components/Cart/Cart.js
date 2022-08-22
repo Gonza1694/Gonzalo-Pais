@@ -53,7 +53,8 @@ const Cart = () => {
                 display 
                 ? <CheckOutForm
                     cart={cart}
-                    totalPrice={totalPrice} />
+                    totalPrice={totalPrice}
+                    clearAll={clearAll} />
                 :<></>
             }
         </>

@@ -11,17 +11,16 @@ const CheckoutSucceed = ({ orderId }) => {
     return (
         <div className='succeed-modal'>
             <Card>
-                <div className='btn-close-modal'>
-                    <Button className='btn-close' variant='contained' color='error' onClick={close}>X</Button>
+                <div className='title-container'>
+                    <Typography variant='h4' color="green">
+                        Compra exitosa!
+                    </Typography>
+                    <div className='btn-close-modal'>
+                        <Button className='btn-close' variant='contained' color='error' onClick={close}>X</Button>
+                    </div>
                 </div>
-                <Typography variant='h4' color="green">
-                    Compra exitosa! 
-                </Typography>
                 <Typography variant='h5'>
-                codigo de compra:
-                </Typography>
-                <Typography>
-                {orderId}
+                    codigo de compra: {orderId}
                 </Typography>
             </Card>
         </div>

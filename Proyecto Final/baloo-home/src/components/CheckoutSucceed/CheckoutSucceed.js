@@ -9,8 +9,8 @@ const CheckoutSucceed = ({ orderId }) => {
     }
 
     return (
-        <div className='succeed-modal'>
-            <Card>
+        <>
+            <Card className='succeed-modal'>
                 <div className='title-container'>
                     <Typography variant='h4' color="green">
                         Compra exitosa!
@@ -19,11 +19,13 @@ const CheckoutSucceed = ({ orderId }) => {
                         <Button className='btn-close' variant='contained' color='error' onClick={close}>X</Button>
                     </div>
                 </div>
-                <Typography variant='h5'>
-                    codigo de compra: {orderId}
-                </Typography>
+                <div className='modal-body'>
+                    <Typography variant='h5'>
+                        codigo de compra: {orderId}
+                    </Typography>
+                </div>
             </Card>
-        </div>
+        </>
     )
 }
 

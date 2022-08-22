@@ -30,9 +30,9 @@ const CheckOutForm = ({ cart, totalPrice, clearAll }) => {
         const collectionOrders = collection(db, "orders")
 
         addDoc(collectionOrders, orderInfo)
-        .then(doc => setOrderId(doc.id))
-        .then(setIsSucceed(true))
-        .then(clearAll);    
+            .then(doc => setOrderId(doc.id))
+            .then(setIsSucceed(true))
+            .then(clearAll);
     }
 
     useEffect(() => {

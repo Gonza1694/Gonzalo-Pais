@@ -50,12 +50,12 @@ const Cart = () => {
                 )
             }
             {
-                display 
-                ? <CheckOutForm
-                    cart={cart}
-                    totalPrice={totalPrice}
-                    clearAll={clearAll} />
-                :<></>
+                display
+                    ? <CheckOutForm
+                        cart={cart}
+                        totalPrice={totalPrice}
+                        clearAll={clearAll} />
+                    : <></>
             }
         </>
     );

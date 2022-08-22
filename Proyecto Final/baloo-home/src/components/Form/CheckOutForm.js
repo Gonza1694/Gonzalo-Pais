@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Card, TextField, Typography, Button } from '@mui/material';
+import { Card, TextField, Button } from '@mui/material';
 import './CheckOutForm.css'
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import CheckoutSucceed from '../CheckoutSucceed/CheckoutSucceed';
 
-const CheckOutForm = ({cart, totalPrice}) => {
+const CheckOutForm = ({ cart, totalPrice }) => {
 
     const [error, setError] = useState(false);
     const [msg, setMsg] = useState("");
     const [orderId, setOrderId] = useState("");
+    const [isSucceed, setIsSucceed] = useState(false)
 
     const order = () => {
         const date = new Date();
@@ -27,7 +29,11 @@ const CheckOutForm = ({cart, totalPrice}) => {
         const db = getFirestore();
         const collectionOrders = collection(db, "orders")
 
-        addDoc(collectionOrders, orderInfo).then(doc => setOrderId(doc.id));
+        addDoc(collectionOrders, orderInfo)
+        .then(doc => setOrderId(doc.id))
+        .then(setIsSucceed(true));
+
+    
     }
 
     useEffect(() => {
@@ -65,29 +71,34 @@ const CheckOutForm = ({cart, totalPrice}) => {
         <>
             <div className='form-container' id='form'>
                 <Card>
-                    <div className='btn-close-container'>
-                        <Button className='btn-close' variant='contained' color='error' onClick={close}>X</Button>
-                    </div>
-                    <div className='text-container'>
-                        <TextField className='text' id='name' label="Nombre" variant="standard" required />
-                        <TextField className='text' id='lastName' label="Apellido" variant="standard" required />
-                        <TextField className='text' id='phone' label="Telefono" variant="standard" required />
-                        <TextField className='text' id="mail" label="Email" variant="standard" onChange={validateMail} required />
-                        <TextField
-                            id='validateMail'
-                            error={error}
-                            label="Email"
-                            helperText={msg}
-                            variant="standard"
-                            onChange={validateMail}
-                            required />
-                        <Button className='btn-confirm' variant='contained' color='success' onClick={order}>
-                            Confirmar compra
-                        </Button>
-                        <Typography>
-                            Codigo de compra:  {orderId}
-                        </Typography>
-                    </div>
+                    {!isSucceed
+                        ? (
+                            <>
+                                <div className='btn-close-container'>
+                                    <Button className='btn-close' variant='contained' color='error' onClick={close}>X</Button>
+                                </div>
+                                <div className='text-container'>
+                                    <TextField className='text' id='name' label="Nombre" variant="standard" required />
+                                    <TextField className='text' id='lastName' label="Apellido" variant="standard" required />
+                                    <TextField className='text' id='phone' label="Telefono" variant="standard" required />
+                                    <TextField className='text' id="mail" label="Email" variant="standard" onChange={validateMail} required />
+                                    <TextField
+                                        id='validateMail'
+                                        error={error}
+                                        label="Email"
+                                        helperText={msg}
+                                        variant="standard"
+                                        onChange={validateMail}
+                                        required />
+                                    <Button className='btn-confirm' variant='contained' color='success' onClick={order}>
+                                        Confirmar compra
+                                    </Button>
+                                </div>
+                            </>
+                        )
+                        : (<CheckoutSucceed
+                            orderId={orderId} />)
+                    }
                 </Card>
             </div>
         </>

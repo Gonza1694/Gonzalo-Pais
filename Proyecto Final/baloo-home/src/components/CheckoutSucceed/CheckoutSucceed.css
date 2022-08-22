@@ -1,0 +1,14 @@
+.btn-close-modal {
+    display: flex;
+    justify-content: flex-end;
+    height: 5%;
+}
+
+.succeed-modal {
+    position: absolute;
+    display: flex;
+    top: 25%;
+    left: 40%;
+    z-index: 1000;
+    background-color: #fff;
+}

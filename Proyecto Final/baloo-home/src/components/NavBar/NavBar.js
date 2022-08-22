@@ -3,8 +3,7 @@ import './NavBar.css'
 import Logo from './Logo/Logo'
 import Category from './Category/Category'
 import CartWidget from './Cart/CartWidget'
-import { AppBar, Toolbar, IconButton, TextField } from '@mui/material'
-import { AccountCircle } from '@material-ui/icons';
+import { AppBar, Toolbar, IconButton } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
@@ -15,14 +14,10 @@ const NavBar = () => {
           <Link style={{ textDecoration: 'none' }} to="/">
             <Logo />
           </Link>
-          <TextField id="outlined-search" label="" type="search" variant="outlined" size='small' margin="dense" placeholder="Search..." />
           <div className='navButtons'>
             <Category />
             <IconButton component={Link} to="/cart">
               <CartWidget />
-            </IconButton>
-            <IconButton>
-              <AccountCircle />
             </IconButton>
           </div>
         </Toolbar>

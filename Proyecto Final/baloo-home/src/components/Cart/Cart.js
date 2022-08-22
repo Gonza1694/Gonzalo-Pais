@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import CartContext from '../../Context/cartContext';
 import CartItem from '../CartItem/CartItem';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import CheckOutForm from '../Form/CheckOutForm'
 import { Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom'
 import './Cart.css';
@@ -10,27 +10,10 @@ const Cart = () => {
 
     const { cart, totalproducts, totalPrice, clearAll } = useContext(CartContext);
 
-    const [orderId, setOrderId] = useState("");
+    const [display, setDisplay] = useState(false);
 
-    const order = () => {
-        const date = new Date();
-        const dateOrder = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-
-        const orderInfo = {
-            buyer: {
-                name: "Gonzalo",
-                phone: "+543816010203",
-                email: "gonzalo@mail.com"
-            },
-            cart,
-            totalPrice,
-            dateOrder
-        }
-
-        const db = getFirestore();
-        const collectionOrders = collection(db, "orders")
-
-        addDoc(collectionOrders, orderInfo).then(doc => setOrderId(doc.id));
+    const displayModal = () => {
+        !display ? setDisplay(true) : setDisplay(false)
     }
 
     return (
@@ -60,16 +43,18 @@ const Cart = () => {
                             ))}
                         </div>
                         <div className='button-container'>
-                            <Button size="small" variant="contained" onClick={order}>Comprar</Button>
+                            <Button size="small" variant="contained" onClick={displayModal}>Comprar</Button>
                             <Button size="small" variant="outlined" color="error" onClick={clearAll}>Vaciar del carrito</Button>
-                        </div>
-                        <div>
-                            <Typography>
-                               Codigo de compra:  {orderId}
-                            </Typography>
                         </div>
                     </>
                 )
+            }
+            {
+                display 
+                ? <CheckOutForm
+                    cart={cart}
+                    totalPrice={totalPrice} />
+                :<></>
             }
         </>
     );

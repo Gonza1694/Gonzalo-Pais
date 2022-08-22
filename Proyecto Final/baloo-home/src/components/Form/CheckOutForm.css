@@ -1,0 +1,28 @@
+.form-container {
+    position: absolute;
+    display: flex;
+    top: 25%;
+    left: 40%;
+    z-index: 1000;
+    background-color: #fff;
+}
+
+.text-container {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    width: 300px;
+}
+
+.btn-close-container {
+    display: flex;
+    justify-content: flex-end;
+    height: 5%;
+}
+
+.btn-confirm {
+    margin-top: 20px!important;
+}

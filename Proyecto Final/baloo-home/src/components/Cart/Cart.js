@@ -20,7 +20,7 @@ const Cart = () => {
         <>
             {cart.length === 0
                 ? (<div className='cart-empty'>
-                    <Typography variant="h3" color="text.primary">
+                    <Typography variant="h3" color="text.primary" padding={10}>
                         El carrito esta vacio!
                     </Typography>
                     <Button component={Link} to='/' variant="contained">
@@ -29,7 +29,7 @@ const Cart = () => {
                 </div>)
                 : (
                     <>
-                        <Typography variant="h4" color="text.primary">
+                        <Typography variant="h4" color="text.primary" padding={5}>
                             Total = ${totalPrice}
                         </Typography>
 

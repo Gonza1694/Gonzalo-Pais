@@ -12,16 +12,15 @@ export default function Category() {
     };
 
     return (
-        <FormControl sx={{ minWidth: 120, color: '#FFF' }} className="select-category">
-            <InputLabel id="category-select-label" sx={{ color: "#FFF" }}>Categoria</InputLabel>
-            <Select
+        <FormControl sx={{ minWidth: 120, color: '#FFF', borderColor: '#FFF' }} className="select-category">
+            <InputLabel id="demo-simple-select-label" sx={{ color: '#FFF' }}>Categoria</InputLabel>
+            <Select sx={{ color: '#FFF' }}
                 labelId="category-select-label"
-                id="category-select-autowidth"
+                id="category-simple-select"
                 value={category}
+                label="Category"
                 onChange={handleChange}
-                autoWidth
-                label="Age"
-                defaultValue={''}>
+            >
                 <MenuItem value={'Cocina'} component={Link} to={"/category/Cocina"}>Cocina</MenuItem>
                 <MenuItem value={'Bano'} component={Link} to={"/category/Bano"}>Baño</MenuItem>
                 <MenuItem value={'Habitacion'} component={Link} to={"/category/Habitacion"}>Habitacion</MenuItem>

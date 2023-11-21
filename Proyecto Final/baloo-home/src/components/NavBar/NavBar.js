@@ -8,21 +8,19 @@ import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   return (
-    <>
-      <AppBar position="static" className='app-bar'>
-        <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Link style={{ textDecoration: 'none' }} to="/">
-            <Logo />
-          </Link>
-          <div className='navButtons'>
-            <Category />
-            <IconButton component={Link} to="/cart">
-              <CartWidget />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </>
+    <AppBar position="static" className='app-bar'>
+      <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Link style={{ textDecoration: 'none' }} to="/">
+          <Logo />
+        </Link>
+        <div className='navButtons'>
+          <Category />
+          <IconButton component={Link} to="/cart">
+            <CartWidget />
+          </IconButton>
+        </div>
+      </Toolbar>
+    </AppBar>
   )
 }
 

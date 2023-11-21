@@ -1,5 +1,4 @@
 import React from 'react';
-import './Category.css'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { Link } from 'react-router-dom'
 

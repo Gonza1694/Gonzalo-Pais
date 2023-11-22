@@ -20,7 +20,10 @@ const Cart = () => {
         <>
             {cart.length === 0
                 ? (<div className='cart-empty'>
-                    <Typography variant="h3" color="text.primary" padding={10}>
+                    <Typography className='cart-title' variant="h3" color="text.primary" sx={{
+                        padding: '5rem',
+                        fontSize: '4rem'
+                    }} >
                         El carrito esta vacio!
                     </Typography>
                     <Button component={Link} to='/' variant="contained">

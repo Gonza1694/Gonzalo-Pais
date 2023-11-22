@@ -15,7 +15,7 @@ const NavBar = () => {
         </Link>
         <div className='navButtons'>
           <Category />
-          <IconButton component={Link} to="/cart">
+          <IconButton component={Link} to="/cart" >
             <CartWidget />
           </IconButton>
         </div>

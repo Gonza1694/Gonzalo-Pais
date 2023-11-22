@@ -10,7 +10,7 @@ const CartWidget = () => {
 
   return (
     <>
-      <ShoppingCartRounded sx={{ color: 'white' }} />
+      <ShoppingCartRounded sx={{ color: 'white', fontSize: 'xx-large' }} />
       <Typography sx={{ color: 'white' }}>
         {totalproducts}
       </Typography>
